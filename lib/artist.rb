@@ -1,29 +1,26 @@
-class Artist
-  attr_accessor :name
-  @@all = []
-  def initialize(name)
-      @name = name
-      @songs = []
-      @@all << name
-  end
+# require 'pry'
 
-  def add_song(song)
-      @songs << song
-      song.artist = self
-  end
+class  Artist
 
-  def songs
-       @songs
-  end
+    attr_accessor :name
 
-  def add_song_by_name(name)
-      song = Song.new(name)
-      song.artist = self
-      @songs << song
-  end
+    def initialize(name)
+        @name = name
+    end
 
-  def self.song_count
-     Song.all.length
-  end
+    def songs
+        Song.all.select{|s| s.artist == self}
+    end
 
-end 
+    def add_song(song)
+        song.artist = self
+    end
+
+    def self.song_count
+        Song.all.length
+    end
+    
+end
+
+# binding.pry
+"test"
