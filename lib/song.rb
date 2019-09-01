@@ -1,4 +1,4 @@
-# require 'pry'
+
 
 class Song
 
@@ -22,7 +22,3 @@ class Song
 
 end
 
-song_a = Song.new("Takeshi") 
-
-# binding.pry
-# "test"
