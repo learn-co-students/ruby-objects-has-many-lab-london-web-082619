@@ -1,4 +1,26 @@
-# require 'pry'
+require 'pry'
+
+class Song
+
+    attr_accessor :name, :artist
+
+    @@all = []
+
+    def initialize(name)
+    @name = name
+    @@all << self
+
+    end
+
+    def self.all
+        @@all
+    end
+
+    def artist_name
+        self.artist ? self.artist.name : nil
+    end
+
+end
 
 class  Artist
 
@@ -25,7 +47,7 @@ class  Artist
 
     def add_song_by_name(name)
         song = Song.new(name)
-        add_song(song)
+        song.artist = self
       end
 
     def self.song_count
@@ -34,5 +56,8 @@ class  Artist
     
 end
 
-# binding.pry
-# "test"
+song1 = Song.new("Takeshi") 
+song2 = Song.new("Yoshio")
+song3 = Song.new("Aki")
+binding.pry
+"test"
